@@ -13089,7 +13089,7 @@
       }
 
       _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
-        if (prevProps.get() !== this.props.getNow()) {
+        if (prevProps.getNow() !== this.props.getNow()) {
           this.clearTimeIndicatorInterval()
 
           if (this.props.isNow) {
