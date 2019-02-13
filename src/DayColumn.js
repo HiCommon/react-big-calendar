@@ -43,14 +43,12 @@ class DayColumn extends React.Component {
     this.slotMetrics = this.slotMetrics.update(nextProps)
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.isNow !== this.props.isNow) {
+  componentDidUpdate(prevProps) {
+    if (prevProps.get() !== this.props.getNow()) {
       this.clearTimeIndicatorInterval()
 
       if (this.props.isNow) {
-        this.setTimeIndicatorPositionUpdateInterval(
-          prevState.timeIndicatorPosition === this.state.timeIndicatorPosition
-        )
+        this.setTimeIndicatorPositionUpdateInterval(false)
       }
     }
   }
